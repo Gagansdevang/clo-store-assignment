@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import StorePage from "./pages/Store";
+import { CssBaseline, Container, Box, Typography } from "@mui/material";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <CssBaseline />
+      <Box sx={{ bgcolor: "#121212", minHeight: "100vh" }}>
+        {/* Sticky Header */}
+        <Box
+          sx={{
+            zIndex: 1000,
+            bgcolor: "#000",
+            borderBottom: "1px solid #333",
+            py: 2,
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Container maxWidth="xl">
+            <Typography variant="h6" sx={{ color: "#fff" }}>
+              CLO-SET Connect — Store
+            </Typography>
+          </Container>
+        </Box>
+
+        {/* Page Content */}
+        <Container maxWidth="xl" sx={{ pt: 2 }}>
+          <Routes>
+            <Route path="/" element={<StorePage />} />
+          </Routes>
+        </Container>
+      </Box>
+    </>
   );
 }
 
